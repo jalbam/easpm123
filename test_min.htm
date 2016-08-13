@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>EASPM123 - test page (by Joan Alba Maldonado)</title>
+		<script language="javascript" type="text/javascript" src="easpm123_min.js"></script>
+		<script language="javascript" type="text/javascript">
+		<!--
+			/*
+			//Using method run (after all is loaded):
+			window.onload =
+				function()
+				{
+					EASPM123.run(
+						["easpm123", "easpm123_no_spam"],
+						["easpm123_label", "easpm123_no_spam_label"],
+						["easpm123", "easpm123_no_spam"],
+						["easpm123_label", "easpm123_no_spam_label"],
+						["NO_SPAM_WELCOME", "DELETE_THIS"],
+						["{*AT_HERE*}", "{*HERE_AT*}"],
+						["mouseover", "click", "touchstart"]
+					);
+				};
+			*/
+			
+			//Changing options (it will be executed automatically when the document is loaded):
+			EASPM123(
+				true,
+				["easpm123", "easpm123_no_spam"],
+				["easpm123_label", "easpm123_no_spam_label"],
+				["easpm123", "easpm123_no_spam"],
+				["easpm123_label", "easpm123_no_spam_label"],
+				["NO_SPAM_WELCOME", "DELETE_THIS"],
+				["{*AT_HERE*}", "{*HERE_AT*}"],
+				["mouseover", "click", "touchstart"]
+			);
+			
+			//Changing options (it will be executed automatically when the document is loaded):
+			EASPM123(
+				true,
+				["easpm123_auto"],
+				["easpm123_auto_label"],
+				[], //If it was set to null, it would use default values and we don't want that.
+				[], //If it was set to null, it would use default values and we don't want that.
+				null,
+				null,
+				[]
+			);
+		// -->
+		</script>
+	</head>
+	<body>
+		<h1 style="display:inline;">EASPM123 (E-Mail Anti-Spam 123) 1.0</h1>
+		<h5 style="display:inline;">&nbsp; by Joan Alba Maldonado</h5>
+		
+		<h2>test page</h2>
+
+		<a class="easpm123_auto" href="mailto:email@NO_SPAM_WELCOMEexample.com">email@<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+		<span class="easpm123_auto_label">(without NO_SPAM_WELCOME)</span>
+		(this email is showed automatically without waiting any event (not recommended))
+		<br />
+			
+		<a id="easpm123" href="mailto:email@NO_SPAM_WELCOMEexample.com">email@<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+		<span id="easpm123_label">(without NO_SPAM_WELCOME)</span>
+		(PUT THE MOUSE CURSOR OVER THE EMAILS OR CLICK/TAP THEM!)
+		<br />
+		
+		<a class="easpm123" href="mailto:email@NO_SPAM_WELCOMEexample.com">email<del style="text-decoration:line-through;"><s>DELETE_THIS</s></del>@example.com</a>
+		<span class="easpm123_label">(without DELETE_THIS)</span>
+		<br />
+		
+		<a class="whatever1 easpm123" href="mailto:email@NO_SPAM_WELCOMEexample.com">email@<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+		<span class="whatever1 easpm123_label">(without NO_SPAM_WELCOME)</span>
+		<br />
+
+		<a class="easpm123 whatever2" href="mailto:emailDELETE_THIS@example.com">email<del style="text-decoration:line-through;"><s>DELETE_THIS</s></del>@example.com</a>
+		<span class="easpm123_label whatever2">(without DELETE_THIS)</span>
+		(it is safer to use the no_spam text (DELETE_THIS in this case) in the user part instead of in the server part)
+		<br />
+
+		<a class="whatever1 easpm123 whatever2" href="mailto:emailDELETE_THIS@NO_SPAM_WELCOMEexample.com">email<del style="text-decoration:line-through;"><s>DELETE_THISNO_SPAM_WELCOME</s></del>@example.com</a>
+		<span class="whatever1 easpm123_label whatever2">(without DELETE_THIS and NO_SPAM_WELCOME)</span>
+		<br />
+
+		<a id="easpm123_no_spam" href="mailto:emailNO_SPAM_WELCOME@example.com">email<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>@example.com</a>
+		<span id="easpm123_no_spam_label">(without NO_SPAM_WELCOME)</span>
+		<br />
+		
+		<a class="easpm123_no_spam" href="mailto:emailNO_SPAM_WELCOME@example.com">email<del style="text-decoration:line-through;"><s>DELETE_THIS</s></del>@example.com</a>
+		<span class="easpm123_no_spam_label">(without DELETE_THIS)</span>
+		<br />
+		
+		<a class="whatever1 easpm123_no_spam" href="mailto:emailNO_SPAM_WELCOME@example.com">email<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>@example.com</a>
+		<span class="whatever1 easpm123_no_spam_label">(without NO_SPAM_WELCOME)</span>
+		<br />
+
+		<a class="easpm123_no_spam whatever2" href="mailto:emailDELETE_THIS@example.com">email<del style="text-decoration:line-through;"><s>DELETE_THIS</s></del>@example.com</a>
+		<span class="easpm123_no_spam_label whatever2">(without DELETE_THIS)</span>
+		<br />
+
+		<a class="whatever1 easpm123_no_spam whatever2" href="mailto:emailDELETE_THISNO_SPAM_WELCOME@example.com">email<del style="text-decoration:line-through;"><s>DELETE_THISNO_SPAM_WELCOME</s></del>@example.com</a>
+		<span class="whatever1 easpm123_no_spam_label whatever2">(without DELETE_THIS and NO_SPAM_WELCOME)</span>
+		<br />
+
+		<a class="whatever1 easpm123_no_spam whatever2" href="mailto:emailDELETE_THIS@NO_SPAM_WELCOMEexample.com">email<del style="text-decoration:line-through;"><s>DELETE_THIS</s></del>@NO_SPAM_WELCOMEexample.com</a>
+		<span class="whatever1 easpm123_no_spam_label whatever2">(without DELETE_THIS and NO_SPAM_WELCOME)</span>
+		(using two no_spam texts is the safest way, as long as you use differnet ones and one in the user part and the other one in the server part)
+		<br />
+		
+		<a class="whatever1 easpm123_no_spam whatever2" href="mailto:emailNO_SPAM_WELCOME{*AT_HERE*}example.com">email<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>{*AT_HERE*}example.com</a>
+		<span class="whatever1 easpm123_no_spam_label whatever2">(without NO_SPAM_WELCOME and replacing {*AT_HERE*} by @)</span>
+		(safer using {*AT_HERE*})
+		<br />
+
+		<a class="whatever1 easpm123_no_spam whatever2" href="mailto:emailNO_SPAM_WELCOME{*AT_HERE*}example.com">email<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>{*AT_HERE*}example.com</a>
+		<span class="whatever1 easpm123_no_spam_label whatever2">(without NO_SPAM_WELCOME and replacing {*AT_HERE*} by @)</span>
+		(even safer using {*AT_HERE*} and without using DEL, S or STRIKE tags)
+		<br />
+
+		<a class="whatever1 easpm123_no_spam whatever2" href="mailto:emailNO_SPAM_WELCOME{*HERE_AT*}example.com">email<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>{*HERE_AT*}example.com</a>
+		<span class="whatever1 easpm123_no_spam_label whatever2">(without NO_SPAM_WELCOME and replacing {*HERE_AT*} by @)</span>
+		(safer using {*HERE_AT*})
+		<br />
+
+		<a class="whatever1 easpm123_no_spam whatever2" href="mailto:emailNO_SPAM_WELCOME{*HERE_AT*}example.com">email<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>{*HERE_AT*}example.com</a>
+		<span class="whatever1 easpm123_no_spam_label whatever2">(without NO_SPAM_WELCOME and replacing {*HERE_AT*} by @)</span>
+		(even safer using {*HERE_AT*} and without using DEL, S or STRIKE tags)
+		<br />
+
+		<a href="mailto:email_not_protected@email_not_protected.com">email_not_protected@example.com</a>
+		(this email is not protected)
+		<br />
+
+		<br />
+		<noscript>JavaScript disabled!<br /><br /></noscript>
+		
+		If you see all emails as email@example.com (except the last one which is not protected) and their link is mailto:email@example.com, it means all works properly (JavaScript must be enabled!).
+	</body>
+</html>

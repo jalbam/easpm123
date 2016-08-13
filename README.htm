@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>EASPM123 - test page (by Joan Alba Maldonado)</title>
+		<script language="javascript" type="text/javascript" src="easpm123_min_eval_no_comments.js"></script>
+		<script language="javascript" type="text/javascript">
+		<!--
+			//Changing options (it will be executed automatically when the document is loaded):
+			EASPM123(
+				true, //Auto-load when the document is ready.
+				["easpm123_"], //Classes used by A tags.
+				["easpm123_label_"], //Classes used by without-no-spam label tags.
+				["easpm123_", "easpm123_no_spam_"], //IDs used by A tags.
+				["easpm123_label", "easpm123_no_spam_label"], //IDs used by without-no-spam label tags.
+				["NO_SPAM_WELCOME", "DELETE_THIS"], //Texts to be cleared (case sensitive).
+				["{*AT_HERE*}", "{*HERE_AT*}"], //Texts that will be replaced by AT (@) symbol.
+				["click"] //Events that will fire the script (leave it empty to do it automatically without events).
+			);
+			
+			/*
+			//Changing options (it will be executed automatically when the document is loaded):
+			EASPM123(
+				true,
+				["easpm123_auto"],
+				["easpm123_auto_label"],
+				[], //If it was set to null, it would use default values and we don't want that.
+				[], //If it was set to null, it would use default values and we don't want that.
+				null,
+				null,
+				[]
+			);
+			*/
+		// -->
+		</script>
+	</head>
+	<body>
+		<h1 style="display:inline;">EASPM123 (E-Mail Anti-Spam 123) 1.0</h1>
+		<h5 style="display:inline;">&nbsp; by Joan Alba Maldonado</h5>
+		
+		<h2>What does it do?</h2>
+		This script will help you to avoid spam by using JavaScript and will protect you even with JavaScript disabled.
+		<br />
+		<br />
+		Protecting your email address against spam is very important since as soon as your email address is caught by a spam bot and inserted in a list or a database for spamming purposes, it will be sold to many spammers that will annoy you and make you waste working time and lose hours and hours of your life. If just only one spam bot gets your email address, that can totally destroy your business if you are out of luck.
+		<br />
+		<br />
+		By default, when the script is added to a web site, it will be executed as soon as the document is ready and with the default values (read usage below to configure this behaviour).
+		<br />
+		<br />
+		For users with JavaScript enabled, they will see your email links normally (unless you use maximum security) and in a totally transparent way. So they will just need to place the mouse cursor or the finger above the email in order to see it and email you.
+		<br />
+		<br />
+		For users without JavaScript enabled, they will still be able to guess your email address as long as they are not bots. This is done by using a real email but with a text string added that the user will have to strip manually.
+		<br />
+		<br />
+		Some spam bots do support JavaScript. The script is executed some milliseconds after the document is ready to avoid some spam bots that get the emails from the documents as soon as they are ready without waiting at all.
+		<br />
+		<br />
+		Even though there are some spam bots that support JavaScript and will wait some seconds after getting emails from a document, not all of them are capable to fire user events. To provide a good security level, the script uses onMouseOver, onTouchStart and onClick events by default. You can change those events (read usage below) or even decode all emails automatically when the document is ready and without waiting for any user event (for the sake of security, this last option is not recommended).
+		<br />
+		<br />
+		Using maximum security (see live examples below) to avoid all spam crawlers (with or without JavaScript support) is recommended.
+		<br />
+		<br />
+		This method will work in any web browser under any platform, with or without JavaScript support. The script will work in any modern JavaScript browser and even in old ones (including Internet Explorer 5.0) as long as they have DOM support (document.getElementById and so on).
+		<br />
+		<br />
+		The script is lightweight, just around 2.57 KB (minified but not compressed).
+		<br />
+		<br />
+		<h2>Usage</h2>
+		To use this script, you just need to follow Step 1 and Step 3. Step 2 is optional just in the case you want to use change the default behaviour.
+		<ol>
+			<li>
+				Add the script (recommended inside the HEAD tag) with the following code:
+				<ul>
+					<tt>
+						&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;easpm123.js&quot;&gt;&lt;/script&gt;
+					</tt>
+					<br />
+					<b>Note</b>: unless you change the script code, it will be executed automatically with the default values as soon as the document is ready.
+				</ul>
+			</li>
+			<li>
+				[Optional] After adding the script (step 1), you can change the default behaviour executing the script configured with your desired values by adding the following code (recommended inside the HEAD):
+				<ul>
+					<tt>
+						&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;<br />
+						&lt;!--<br />
+							<ul>
+							EASPM123(<br />
+								<ul>
+								boolean, //Auto-load when the document is ready.<br />
+								//Note: Next values can be set to null for default or use [] if you don't want any:<br />
+								strings_array, //Classes used by A tags.<br />
+								strings_array, //Classes used by without-no-spam label tags.<br />
+								strings_array, //IDs used by A tags.<br />
+								strings_array, //IDs used by without-no-spam label tags.<br />
+								strings_array, //Texts to be cleared (case sensitive).<br />
+								strings_array, //Texts that will be replaced by AT (@) symbol.<br />
+								strings_array //Events that will fire the script (leave it empty to do it automatically without events).<br />
+								</ul>
+							);<br />
+							</ul>
+						//--&gt;<br />
+						&lt;/script&gt;
+					</tt>
+				</ul>
+				Example:
+				<ul>
+					<tt>
+						&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;<br />
+						&lt;!--<br />
+							<ul>
+							EASPM123(<br />
+								<ul>
+								true, //Default is true.<br />
+								[&quot;no_spam_class1&quot;, &quot;no_spam_class2&quot;], //Default is [&quot;easpm123&quot;].<br />
+								[&quot;no_spam_label_class1&quot;, &quot;no_spam_label_class2&quot;], //Default is [&quot;easpm123_label&quot;].<br />
+								[&quot;no_spam_id1&quot;, &quot;no_spam_id2&quot;], //Default is [&quot;easpm123&quot;].<br />
+								[&quot;no_spam_label_id1&quot;, &quot;no_spam_label_id2&quot;], //Default is [&quot;easpm123_label&quot;].<br />
+								[&quot;NO_SPAM_WELCOME&quot;, &quot;DELETE_THIS&quot;], //Default is [&quot;NO_SPAM_WELCOME&quot;].<br />
+								[&quot;{*AT_HERE*}&quot;, &quot;{*HERE_AT*}&quot;], //Default is [&quot;{*AT_HERE*}&quot;].<br />
+								[&quot;click&quot;] //Default is [&quot;mouseover&quot;, &quot;click&quot;, &quot;touchstart&quot;].<br />
+								</ul>
+							);<br />
+							</ul>
+						//--&gt;<br />
+						&lt;/script&gt;
+					</tt>
+				</ul>
+			</li>
+			<li>
+				Wherever you need to use a link to an email address, use the desired class or the desired ID for the A link. Using a label element (can be SPAN, DIV or whatever) is recommended for browsers without JavaScript enabled:
+				<ul>
+					<tt>
+						AQUI LINK Y LABEL
+					</tt>
+					<br />
+					<b>Note</b>: You can improve security by using other methods as changing text direction by CSS (not recommended for browsers which doesn't support this CSS feature), use an image for parts of your email, etc.
+				</ul>
+			</li>
+		</ol>
+		<h2>Live examples</h2>
+		Here are some ways you can use to prevent spam:
+		<br />
+		
+		<!-- <a class="easpm123_auto" href="mailto:email@NO_SPAM_WELCOMEexample.com">email@<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+		<span class="easpm123_auto_label">(without NO_SPAM_WELCOME)</span>
+		(this email is showed automatically without waiting any event (not recommended))
+		<br /> -->
+			
+		<a id="easpm123_" href="mailto:email@NO_SPAM_WELCOMEexample.com">email@<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+		<span id="easpm123_label_">(without NO_SPAM_WELCOME)</span>
+		(PUT THE MOUSE CURSOR OVER THE EMAILS OR CLICK/TAP THEM!)
+		
+		<br />
+		<br />
+		<h2>License</h2>
+		Blablabla
+		<br />
+		<br />
+		<h2>Contact me</h2>
+		Blablabla
+	</body>
+</html>
