@@ -1,0 +1,35 @@
+﻿{
+	"name": "easpm123",
+	"description": "An Easy-to-use JavaScript API that protects any email address you want to use in your website from spambots.",
+	"keywords":
+	[
+		"cross-browser",
+		"cross-device",
+		"cross-platform",
+		"easy-to-use",
+		"email-obfuscator",
+		"email-protector",
+		"javascript-api",
+		"javascript-library",
+		"multilanguage",
+		"multiplatform",
+		"spam-prevention",
+		"spam-protection",
+		"spambot-security",
+		"vanilla-javascript",
+		"spam"
+	],
+	"authors": [ "Joan Alba Maldonado <joanalbamaldonadoNO_SPAM_PLEASE_DELETE_THIS@gmail.com>" ],
+	"homepage": "https://github.com/jalbam/easpm123.git",
+	"repository":
+	{
+		"type": "git",
+		"url": "git://github.com/foo/bar.git"
+	},
+	"ignore":
+	[
+		"**/.*"
+	],
+	"moduleType": [ "globals" ],
+	"private": false
+}
