@@ -88,7 +88,7 @@ Note that, after the script is included, it immediately modifies the **onload** 
 
 This way, any **&lt;a&gt;** tag whose **id** is **easpm123** or **class** property contains the **easpm123** class, will be affected. The default text to remove from the email will be "_NO_SPAM_WELCOME_" and the "{*AT_HERE*}" text will be replaced by the _AT_ (_@_) symbol.
 
-The text inside of the elements whose **id** is **easpm123_label** or **class** property contains the **easpm123_label** class will be removed automatically when the page loads. These elements are called "_without-no-spam_" elements.
+The text inside of the elements whose **id** is **easpm123_label** or **class** property contains the **easpm123_label** class will be removed automatically when the page loads. These elements are called "_without-no-spam_" elements and are useful for the users when JavaScript is not available.
 
 The real email address will be shown when the user is over or clicks or taps the email link (the **&lt;a&gt;** tag described above).
 
@@ -107,7 +107,7 @@ The real email address will be shown when the user is over or clicks or taps the
 
 ### Example #2 - Easiest way for the user (very unsafe), with a bit of JavaScript and HTML:
 
-This methods needs a little bit of JavaScript (using an empty array as the "_eventNames_" parameter) but will not need any event fired by the user. The users can be happier this way but some spambots will be too. Safety wise, this method is not recommended.
+This methods needs a little bit of JavaScript (using an empty array as the **eventNames** parameter) but will not need any event fired by the user. The script and its magic will be performed automatically. The users can be happier this way but some spambots will be too. Safety wise, this method is not recommended.
 
 As we are using the main object, this must be run before the **onload** event of the **window** object is fired.
 
