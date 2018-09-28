@@ -86,9 +86,8 @@ The real email address will be shown when the user is over or clicks or taps the
 
 #### HTML:
 ```html
-	<a id="easpm123" href="mailto:email{*AT_HERE*}NO_SPAM_WELCOMEexample.com">email{*AT_HERE*}<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
-	<span id="easpm123_label">(without NO_SPAM_WELCOME)</span>
-	(PUT THE MOUSE CURSOR OVER THE EMAILS OR CLICK/TAP THEM!)
+<a id="easpm123" href="mailto:email{*AT_HERE*}NO_SPAM_WELCOMEexample.com">email{*AT_HERE*}<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+<span id="easpm123_label">(without NO_SPAM_WELCOME)</span>
 ```
 
 
