@@ -59,23 +59,31 @@ EASPM123
 
 The parameters accepted are the following ones:
 
-| Parameter					| Type				| Default value							| Mandatory?| Description																																																													|
-| --------------------------| ----------------- |-------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| autoLoad					| boolean			| true									| No		| If set to true, the script will be loaded automatically (the **run** method will not be needed to be called) when the document is ready.																														|
-| linkClasses				| array of strings	| ["easpm123"]							| No		| Class names used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																						|
-| withoutNoSpamLabelClasses	| array of strings	| ["easpm123_label"]					| No		| Class names of the "_without-no-spam_" elements that will be removed.																																															|
-| linkIDs					| array of strings	| ["easpm123"]							| No		| IDs used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																								|
-| withoutNoSpamLabelIDs		| array of strings	| ["easpm123_label"]					| No		| IDs used by the "_without-no-spam_" elements that will be removed.																																															|
-| textsToClear				| array of strings	| ["NO_SPAM_WELCOME"]					| No		| Texts to be cleared (case sensitive).																																																							|
-| atSymbolAliases			| array of strings	| ["{*AT_HERE*}"]						| No		| Texts that will be replaced by the _AT_ (_@_) symbol.																																																			|
-| eventNames				| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **&lt;a&gt;** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to do it automatically without events.	|
+| Parameter					| Type				| Default value							| Mandatory?| Description																																																																	|
+| --------------------------| ----------------- |-------------------------------------- | --------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| autoLoad					| boolean			| true									| No		| If it is set to true, the script will be loaded automatically (the **run** method will not be needed to be called) when the document is ready. If it is set to false, all the rest of parameters will be ignored and they will need to be used in the **run** method instead.	|
+| linkClasses				| array of strings	| ["easpm123"]							| No		| Class names used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																									|
+| withoutNoSpamLabelClasses	| array of strings	| ["easpm123_label"]					| No		| Class names of the "_without-no-spam_" elements that will be removed.																																																			|
+| linkIDs					| array of strings	| ["easpm123"]							| No		| IDs used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																											|
+| withoutNoSpamLabelIDs		| array of strings	| ["easpm123_label"]					| No		| IDs used by the "_without-no-spam_" elements that will be removed.																																																			|
+| textsToClear				| array of strings	| ["NO_SPAM_WELCOME"]					| No		| Texts to be cleared (case sensitive).																																																											|
+| atSymbolAliases			| array of strings	| ["{*AT_HERE*}"]						| No		| Texts that will be replaced by the _AT_ (_@_) symbol.																																																							|
+| eventNames				| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **&lt;a&gt;** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to do it automatically without events.			|
 
 Note that, except for the first parameter (**autoLoad**), all the rest of the parameters can accept the **null** value if we want to use their default value or can also accept an empty array (as the **[]** value) in the case that we do not want any value at all. In the case of the last parameter (**eventNames**), using an empty array will force the script to run its magic automatically without having to fire any event (not recommended as the safety would be decreased).
 
-If the **autoLoad** parameter is set to false, the **run** method will have to be called manually when desired. This method accepts the same parameters as the main object except the first one. Read below to see an example showing how to use it.
+If the **autoLoad** parameter is set to false, the rest of parameters will be ignored and the **run** method will have to be called manually when desired (always after the document has been loaded!). This method accepts the same parameters as the main object except the first one. Read below to see an example showing how to use it.
+
+Have in mind that, as soon as the script is included, it will run itself once with the default options. We can run it again (through either the main object or the **run** method), if desired, after that.
+
+The main object can only be used before the **onload** event of the **window** object is fired. If we want to run the script after that, we need to use the **run** method instead.
+
+See the examples below for more information.
 
 	
 ### Example #1 - Easiest way for the developer (not so safe), with just HTML: 
+
+Note that, after the script is included, it immediately modifies the **onload** event of the **window** object (keeping any previous event, so it will not override anything) to execute itself after some milliseconds (it does not do it immediately to get rid of some spambots which will not have this into account). If, during the time between the inclusion of the script and the milliseconds (100 by default) before its executed itself, the **onload** event of the **window** object is overrided, this example will simply not work.
 
 This way, any **&lt;a&gt;** tag whose **id** is **easpm123** or **class** property contains the **easpm123** class, will be affected. The default text to remove from the email will be "NO_SPAM_WELCOME" and the "{*AT_HERE*}" will be replaced by the _AT_ (_@_) symbol.
 
@@ -86,31 +94,143 @@ The real email address will be shown when the user is over or clicks or taps the
 
 #### HTML:
 ```html
+<!-- Using ID: -->
 <a id="easpm123" href="mailto:email{*AT_HERE*}NO_SPAM_WELCOMEexample.com">email{*AT_HERE*}<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
 <span id="easpm123_label">(without NO_SPAM_WELCOME)</span>
+<br />
+<!-- Using class: -->
+<a class="easpm123" href="mailto:email{*AT_HERE*}NO_SPAM_WELCOMEexample.com">email{*AT_HERE*}<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+<span class="easpm123_label">(without NO_SPAM_WELCOME)</span>
 ```
 
 
-### Example #2 - Easiest way for the user (very unsafe), with HTML and a bit of JavaScript:
+### Example #2 - Easiest way for the user (very unsafe), with a bit of JavaScript and HTML:
 
 This methods needs a little bit of JavaScript (using an empty array as the "_eventNames_" parameter) but will not need any event fired by the user. The users can be happier this way but some spambots will be too. Safety wise, this method is not recommended.
 
+As we are using the main object, this must be run before the **onload** event of the **window** object is fired.
+
 #### JavaScript:
 ```javascript
-EASPM123(true, null, null, null, null, null, null, []);
+EASPM123(true, null, null, null, null, null, null, [] /* eventNames */);
 ```
 
 #### HTML:
 Use the same HTML code from the Example #1.
 
 
-### Example #3 - Very easy way (safer), with HTML and a bit of JavaScript:
+### Example #3 - Second easiest way for the user (still unsafe), with a bit of JavaScript and HTML:
+
+This will be little bit safer than the Example #2 as we change default values by the desired ones. Different IDs and class names have been used just to show how it works.
+
+As we are using the main object, this must be run before the **onload** event of the **window** object is fired.
+
+#### JavaScript:
+```javascript
+EASPM123
+(
+	true, //autoLoad.
+	["class_email_link", "class_email_link2"], //linkClasses.
+	["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamLabelClasses.
+	["id_email_link", "id_email_link2"], //linkIDs.
+	["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamLabelIDs.
+	["WITHOUT_THIS_TEXT", "TAKE_THIS_OUT"], //textsToClear
+	["[PUT_AT_HERE]", "{HERE_AN_AT_SYMBOL}"], //atSymbolAliases.
+	[] //eventNames.
+);
+```
 
 #### HTML:
+```html
+<!-- Using ID: -->
+<a id="id_email_link" href="mailto:email[PUT_AT_HERE]WITHOUT_THIS_TEXTexample.com">email[PUT_AT_HERE]<del style="text-decoration:line-through;"><s>WITHOUT_THIS_TEXT</s></del>example.com</a>
+<span id="id_without_no_spam_label">(without NO_SPAM_WELCOME)</span>
+<br />
+<a id="id_email_link2" href="mailto:email[PUT_AT_HERE]WITHOUT_THIS_TEXTexample.com">email[PUT_AT_HERE]<del style="text-decoration:line-through;"><s>WITHOUT_THIS_TEXT</s></del>example.com</a>
+<span id="id_without_no_spam_label2">(without NO_SPAM_WELCOME)</span>
+<br />
+<!-- Using class: -->
+<a class="class_email_link" href="mailto:email{HERE_AN_AT_SYMBOL}TAKE_THIS_OUTexample.com">email{HERE_AN_AT_SYMBOL}<del style="text-decoration:line-through;"><s>TAKE_THIS_OUT</s></del>example.com</a>
+<span class="class_without_no_spam_label">(without NO_SPAM_WELCOME)</span>
+<br />
+<a class="class_email_link2" href="mailto:email{HERE_AN_AT_SYMBOL}TAKE_THIS_OUTexample.com">email{HERE_AN_AT_SYMBOL}<del style="text-decoration:line-through;"><s>TAKE_THIS_OUT</s></del>example.com</a>
+<span class="class_without_no_spam_label2">(without NO_SPAM_WELCOME)</span>
+```
 
-		
 
-	
+### Example #4 - Not-so-easy way (safer), with a bit more of JavaScript and HTML:
+
+This is like the Example #3 but only firing the script under the default events (onmouseover, onclick and ontouchstart) and not automatically.
+
+As we are using the main object, this must be run before the **onload** event of the **window** object is fired.
+
+#### JavaScript:
+```javascript
+EASPM123
+(
+	true, //autoLoad.
+	["class_email_link", "class_email_link2"], //linkClasses.
+	["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamLabelClasses.
+	["id_email_link", "id_email_link2"], //linkIDs.
+	["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamLabelIDs.
+	["WITHOUT_THIS_TEXT", "TAKE_THIS_OUT"], //textsToClear
+	["[PUT_AT_HERE]", "{HERE_AN_AT_SYMBOL}"], //atSymbolAliases.
+);
+```
+
+#### HTML:
+Use the same HTML code from the Example #3.
+
+
+### Example #5 - A little-bit-more-difficult way (a bit safer), with more JavaScript and HTML:
+
+This is like the Example #4 but using the **run** method instead of the main object. So instead of running the script automatically we will do it manually.
+
+Note that the main object must be used before the **onload** event of the **window** object is fired but the **run** method must be run after that.
+
+For safety purposes, the main object waits by default 100 milliseconds before it runs the script automatically. In this example we will wait a little bit more to add even more safety.
+
+
+#### JavaScript:
+```javascript
+setTimeout
+(
+	function()
+	{
+		EASPM123.run
+		(
+			["class_email_link", "class_email_link2"], //linkClasses.
+			["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamLabelClasses.
+			["id_email_link", "id_email_link2"], //linkIDs.
+			["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamLabelIDs.
+			["WITHOUT_THIS_TEXT", "TAKE_THIS_OUT"], //textsToClear
+			["[PUT_AT_HERE]", "{HERE_AN_AT_SYMBOL}"], //atSymbolAliases.
+			[]
+		);
+	},
+	300
+);
+```
+
+#### HTML:
+Use the same HTML code from the Example #3.		
+
+
+## Improving safety
+
+To improve the safety and get rid of the as many spambots as possible I recommend the following:
+
+1. Do not fire the script automatically (without needing events). So, do not do as the Example #2 or Example #3.
+
+2. Do not use the default values for the text which replaces _AT_ (_@_) symbol. Use your imagination to invent new ones. Look at the Example #4.
+
+3. Do not use the default values for the text which should be removed from the email address. Use your imagination to invent new ones. Look at the Example #4.
+
+4. Do not use the default values for the classes or IDs (for both, **&lt;a&gt;** elements and the "_without-no-spam_" elements) and use your own ones. Look at the Example #4.
+
+5. Use the **run** method instead of the main object and call it some milliseconds after the **onload** event of the **window** object is fired. Look at the Example #5.
+
+6. If you are paranoid enough, you can consider using different ways to obfuscate the strings in the arrays used in the optional parameters and also use other ways of obfuscating. Again, use your own imagination.
 
 
 ## Final comments
