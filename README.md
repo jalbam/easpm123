@@ -35,7 +35,7 @@ There are different ways to use this script detailed below, some safer than othe
 
 The behaviour can be configured easily through the main (and unique) object the script uses (for more information, you can read the instructions in [README.htm](README.html)). But if you are lazy, although it would be less safe, you just need to include the .js file in your website and change the class name (or add to the current classes a new one) of the **&lt;a&gt;** elements containing the links to the emails (the class name should be "easpm123" by default).
 
-In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js) which is already minified) must be included in your document. The most common way to do this is by using a **<SCRIPT>** tag:
+In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js) which is already minified) must be included in your document. The most common way to do this is by using a **&lt;script&gt;** tag:
 ```html
 <script src="easpm123_min.js" type="text/javascript" language="javascript"></script>
 ```
@@ -75,13 +75,13 @@ Note that, except for the first parameter (**autoLoad**), all the rest of the pa
 If the **autoLoad** parameter is set to false, the **run** method will have to be called manually when desired. This method accepts the same parameters as the main object except the first one. Read below to see an example showing how to use it.
 
 	
-### Example 1 - Easiest way (not so safe), with just HTML: 
+### Example #1 - Easiest way for the developer (not so safe), with just HTML: 
 
-This way, any **&lt;a&gt;** tag whose **id** or **class** property is **easpm123**, will be affected. The default text to remove from the email will be "NO_SPAM_WELCOME" and the "{*AT_HERE*}" will be replaced by the _AT_ (_@_) symbol.
+This way, any **&lt;a&gt;** tag whose **id** is **easpm123** or **class** property contains the **easpm123** class, will be affected. The default text to remove from the email will be "NO_SPAM_WELCOME" and the "{*AT_HERE*}" will be replaced by the _AT_ (_@_) symbol.
 
-The text inside of the elements whose **id** or **class** property is **easpm123_label** will be removed automatically when the page loads.
+The text inside of the elements whose **id** is **easpm123_label** or **class** property contains the **easpm123_label** class will be removed automatically when the page loads. These elements are called "_without-no-spam_" elements.
 
-The real email address will be shown when the user is over or click or taps the email link (the **&lt;a&gt;** tag described above).
+The real email address will be shown when the user is over or clicks or taps the email link (the **&lt;a&gt;** tag described above).
 
 
 #### HTML:
@@ -92,7 +92,19 @@ The real email address will be shown when the user is over or click or taps the 
 ```
 
 
-### Example 2 - Very easy way (safer), with HTML and a bit of JavaScript:
+### Example #2 - Easiest way for the user (very unsafe), with HTML and a bit of JavaScript:
+
+This methods needs a little bit of JavaScript (using an empty array as the "_eventNames_" parameter) but will not need any event fired by the user. The users can be happier this way but some spambots will be too. Safety wise, this method is not recommended.
+
+#### JavaScript:
+EASPM123(true, null, null, null, null, null, null, []);
+
+
+#### HTML:
+Use the same HTML code from the Example #1.
+
+
+### Example #3 - Very easy way (safer), with HTML and a bit of JavaScript:
 
 #### HTML:
 
