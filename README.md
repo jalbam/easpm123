@@ -249,7 +249,7 @@ To improve the safety and get rid of as many spambots as possible I recommend th
 
 4. Do not use the default values for the classes or IDs (for both, **&lt;a&gt;** elements and the "_without-no-spam_" elements) and use your own ones. Look at the Example #4.
 
-5. Use the **run** method instead of the main object and call it some milliseconds after the **onload** event of the **window** object is fired. Look at the [Example #5](example-5).
+5. Use the **run** method instead of the main object and call it some milliseconds after the **onload** event of the **window** object is fired. Look at the [Example #5](#example-5).
 
 6. Images or other elements instead of text can be used inside the "_without-no-spam_" elements to make it harder for the spambots to figure out the email address. Have in mind that some browsers can have images disabled or even some people could not see them properly.
 
