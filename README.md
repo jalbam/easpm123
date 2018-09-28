@@ -86,7 +86,7 @@ See the examples below for more information.
 
 Note that, after the script is included, it immediately modifies the **onload** event of the **window** object (keeping any previous event, so it will not override anything) to execute itself after some milliseconds (it does not do it immediately to get rid of some spambots which will not have this into account). If, during the time between the inclusion of the script and the milliseconds (100 by default) before its executed itself, the **onload** event of the **window** object is overrided, this example will simply not work.
 
-This way, any **&lt;a&gt;** tag whose **id** is **easpm123** or **class** property contains the **easpm123** class, will be affected. The default text to remove from the email will be "NO_SPAM_WELCOME" and the "{*AT_HERE*}" will be replaced by the _AT_ (_@_) symbol.
+This way, any **&lt;a&gt;** tag whose **id** is **easpm123** or **class** property contains the **easpm123** class, will be affected. The default text to remove from the email will be "_NO_SPAM_WELCOME_" and the "{*AT_HERE*}" text will be replaced by the _AT_ (_@_) symbol.
 
 The text inside of the elements whose **id** is **easpm123_label** or **class** property contains the **easpm123_label** class will be removed automatically when the page loads. These elements are called "_without-no-spam_" elements.
 
