@@ -33,6 +33,25 @@ There are different ways to use this script detailed below, some safer than othe
 
 ## Usage
 
+You can download the project from GitHub directly to include it in your project or you can also use one of the following commands while you are in your project:
+
+**Bower**:
+```
+bower install easpm123
+```
+
+**Yarn**:
+```
+yarn add easpm123
+```
+
+**npm** (it will need a package.json):
+```
+yarn add easpm123
+```
+
+
+
 The behaviour can be configured easily through the main (and unique) object the script uses (for more information, you can read the instructions in [README.htm](README.html)). But if you are lazy, although it would be less safe, you just need to include the .js file in your website and change the class name (or add to the current classes a new one) of the **&lt;a&gt;** elements containing the links to the emails (the class name should be "easpm123" by default).
 
 In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js) which is already minified) must be included in your document. The most common way to do this is by using a **&lt;script&gt;** tag:
