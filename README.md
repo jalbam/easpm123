@@ -46,7 +46,8 @@ If we decide to use the main (and unique) object, this is how it looks like:
 EASPM123
 (
 	autoLoad,
-	//Next values can be set to null to force using default ones or use an empty array if you do not want any value at all:
+	//Next values can be set to null to force using default ones or use
+	//an empty array if you do not want any value at all:
 	linkClasses,
 	withoutNoSpamLabelClasses,
 	linkIDs,
