@@ -102,7 +102,9 @@ The main object can only be used before the **onload** event of the **window** o
 See the examples below for more information.
 
 	
+<a name="example-1">
 ### Example #1 - Easiest way for the developer (not so safe), with just HTML: 
+</a>
 
 Note that, after the script is included, it immediately modifies the **onload** event of the **window** object (keeping any previous event, so it will not override anything) to execute itself after some milliseconds (it does not do it immediately to get rid of some spambots which will not have this into account). If, during the time between the inclusion of the script and the milliseconds (100 by default) before its executed itself, the **onload** event of the **window** object is overrided, this example will simply not work.
 
@@ -124,8 +126,9 @@ The real email address will be shown when the user is over or clicks or taps the
 <span class="easpm123_label">(without NO_SPAM_WELCOME)</span>
 ```
 
-
+<a name="example-2">
 ### Example #2 - Easiest way for the user (very unsafe), with a bit of JavaScript and HTML:
+</a>
 
 This methods needs a little bit of JavaScript (using an empty array as the **eventNames** parameter) but will not need any event fired by the user. The script and its magic will be performed automatically. The users can be happier this way but some spambots will be too. Safety wise, this method is not recommended.
 
@@ -137,12 +140,13 @@ EASPM123(true, null, null, null, null, null, null, [] /* eventNames */);
 ```
 
 #### HTML:
-Use the same HTML code from the Example #1.
+Use the same HTML code from the [Example #1](#example-1).
 
-
+<a name="example-3">
 ### Example #3 - Second easiest way for the user (still unsafe), with a bit of JavaScript and HTML:
+</a>
 
-This will be little bit safer than the Example #2 as we change default values by the desired ones. Different IDs and class names have been used just to show how it works.
+This will be little bit safer than the [Example #2](#example-2) as we change default values by the desired ones. Different IDs and class names have been used just to show how it works.
 
 As we are using the main object, this must be run before the **onload** event of the **window** object is fired.
 
@@ -178,10 +182,11 @@ EASPM123
 <span class="class_without_no_spam_label2">(without NO_SPAM_WELCOME)</span>
 ```
 
-
+<a name="example-4">
 ### Example #4 - Not-so-easy way for the user (safer), with a bit more of JavaScript and HTML:
+</a>
 
-This is like the Example #3 but only firing the script under the default events (onmouseover, onclick and ontouchstart) and not automatically.
+This is like the [Example #3](#example-3) but only firing the script under the default events (onmouseover, onclick and ontouchstart) and not automatically.
 
 As we are using the main object, this must be run before the **onload** event of the **window** object is fired.
 
@@ -200,13 +205,14 @@ EASPM123
 ```
 
 #### HTML:
-Use the same HTML code from the Example #3.
+Use the same HTML code from the [Example #3](#example-3).
 
 
+<a name="example-5">
 ### Example #5 - A little-bit-more-difficult way (a bit safer), with more JavaScript and HTML:
-<a name="example-5"></a>
+</a>
 
-This is like the Example #4 but using the **run** method instead of the main object. So instead of running the script automatically we will do it manually.
+This is like the [Example #4](#example-4) but using the **run** method instead of the main object. So instead of running the script automatically we will do it manually.
 
 Note that the main object must be used before the **onload** event of the **window** object is fired but the **run** method must be run after that.
 
@@ -235,20 +241,20 @@ setTimeout
 ```
 
 #### HTML:
-Use the same HTML code from the Example #3.		
+Use the same HTML code from the [Example #3](#example-3).		
 
 
 ## Improving safety
 
 To improve the safety and get rid of as many spambots as possible I recommend the following:
 
-1. Do not fire the script automatically (without needing events). So, do not do as the Example #2 or Example #3.
+1. Do not fire the script automatically (without needing events). So, do not do as the [Example #2](#example-2) or [Example #3](#example-3).
 
-2. Do not use the default values for the text which replaces the _AT_ (_@_) symbol. Use your imagination to invent new ones. Look at the Example #4.
+2. Do not use the default values for the text which replaces the _AT_ (_@_) symbol. Use your imagination to invent new ones. Look at the [Example #4](#example-4).
 
-3. Do not use the default values for the text which should be removed from the email address. Use your imagination to invent new ones. Look at the Example #4.
+3. Do not use the default values for the text which should be removed from the email address. Use your imagination to invent new ones. Look at the [Example #4](#example-4).
 
-4. Do not use the default values for the classes or IDs (for both, **&lt;a&gt;** elements and the "_without-no-spam_" elements) and use your own ones. Look at the Example #4.
+4. Do not use the default values for the classes or IDs (for both, **&lt;a&gt;** elements and the "_without-no-spam_" elements) and use your own ones. Look at the [Example #4](#example-4).
 
 5. Use the **run** method instead of the main object and call it some milliseconds after the **onload** event of the **window** object is fired. Look at the [Example #5](#example-5).
 
