@@ -242,9 +242,9 @@ To improve the safety and get rid of as many spambots as possible I recommend th
 
 Following the instructions and some guidelines (included inside the package), the email addresses should be human-understandable even when JavaScript is disabled.
 
-If you are tired of being spammed, you should try this little script (with an email address which spambots don't know yet!).
+If you are tired of being spammed, you should try this little script (with an email address which spambots do not know yet!).
 
 
 ## License
 
-Forbidden to use without keeping the author's name and copyright clauses. For non-commercial purposes only (unless you contact me and pay for a license).
+Forbidden to use without keeping the author's name and copyright clauses. Other than that, just use this script freely but never sell it!
