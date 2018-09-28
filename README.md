@@ -67,9 +67,9 @@ The parameters accepted are the following ones:
 | **withoutNoSpamElementClasses**	| array of strings	| ["easpm123_label"]					| No		| Class names of the "_without-no-spam_" elements that will be removed.																																																			|
 | **linkIDs**						| array of strings	| ["easpm123"]							| No		| IDs used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																											|
 | **withoutNoSpamElementIDs**		| array of strings	| ["easpm123_label"]					| No		| IDs used by the "_without-no-spam_" elements that will be removed.																																																			|
-| **textsToClear**					| array of strings	| ["NO_SPAM_WELCOME"]					| No		| Texts to be cleared (case sensitive).																																																											|
+| **textsToClear**					| array of strings	| ["NO_SPAM_WELCOME"]					| No		| Texts to be removed (case sensitive) from the email address.																																																					|
 | **atSymbolAliases**				| array of strings	| ["{*AT_HERE*}"]						| No		| Texts that will be replaced by the _AT_ (_@_) symbol.																																																							|
-| **eventNames**					| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **&lt;a&gt;** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to do it automatically without events.			|
+| **eventNames**					| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **&lt;a&gt;** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to run the script automatically without events.	|
 
 Note that, except for the first parameter (**autoLoad**), all the rest of the parameters can accept the **null** value if we want to use their default value or can also accept an empty array (as the **[]** value) in the case that we do not want any value at all. In the case of the last parameter (**eventNames**), using an empty array will force the script to run its magic automatically without having to fire any event (not recommended as the safety would be decreased).
 
@@ -231,9 +231,11 @@ To improve the safety and get rid of the as many spambots as possible I recommen
 
 5. Use the **run** method instead of the main object and call it some milliseconds after the **onload** event of the **window** object is fired. Look at the Example #5.
 
-6. You can consider about using other events instead of the default ones to fire the script that could maybe improve safety.
+6. Images or other elements instead of text can be used inside the "_without-no-spam_" elements to make it harder for the spambots to figure out the email address.
 
-7. If you are paranoid enough, you can consider using different ways to obfuscate the strings in the arrays used in the optional parameters and also use other ways of obfuscating. Again, use your own imagination.
+7. You can consider about using other events instead of the default ones to fire the script that could maybe improve safety.
+
+8. If you are paranoid enough, you can consider using different ways to obfuscate the strings in the arrays used in the optional parameters and also use other ways of obfuscating. Again, use your own imagination.
 
 
 ## Final comments
