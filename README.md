@@ -264,7 +264,7 @@ Following the instructions and some guidelines (included inside the package), th
 
 If you are tired of being spammed, you should try this little script (with an email address which spambots do not know yet!).
 
-Live example: http://htmlpreview.github.io/?https://github.com/jalbam/easpm123/blob/master/test_min_eval.htm
+Live example: <a href="http://htmlpreview.github.io/?https://github.com/jalbam/easpm123/blob/master/test_min_eval.htm" target="_blank">http://htmlpreview.github.io/?https://github.com/jalbam/easpm123/blob/master/test_min_eval.htm</a>
 
 
 ## License
