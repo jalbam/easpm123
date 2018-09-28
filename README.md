@@ -219,11 +219,11 @@ Use the same HTML code from the Example #3.
 
 ## Improving safety
 
-To improve the safety and get rid of the as many spambots as possible I recommend the following:
+To improve the safety and get rid of as many spambots as possible I recommend the following:
 
 1. Do not fire the script automatically (without needing events). So, do not do as the Example #2 or Example #3.
 
-2. Do not use the default values for the text which replaces _AT_ (_@_) symbol. Use your imagination to invent new ones. Look at the Example #4.
+2. Do not use the default values for the text which replaces the _AT_ (_@_) symbol. Use your imagination to invent new ones. Look at the Example #4.
 
 3. Do not use the default values for the text which should be removed from the email address. Use your imagination to invent new ones. Look at the Example #4.
 
@@ -231,9 +231,9 @@ To improve the safety and get rid of the as many spambots as possible I recommen
 
 5. Use the **run** method instead of the main object and call it some milliseconds after the **onload** event of the **window** object is fired. Look at the Example #5.
 
-6. Images or other elements instead of text can be used inside the "_without-no-spam_" elements to make it harder for the spambots to figure out the email address.
+6. Images or other elements instead of text can be used inside the "_without-no-spam_" elements to make it harder for the spambots to figure out the email address. Have in mind that some browsers can have images disabled or even some people could not see them properly.
 
-7. You can consider about using other events instead of the default ones to fire the script that could maybe improve safety.
+7. You can consider about using other events instead of the default ones to fire the script. That could, maybe, improve safety.
 
 8. If you are paranoid enough, you can consider using different ways to obfuscate the strings in the arrays used in the optional parameters and also use other ways of obfuscating. Again, use your own imagination.
 
