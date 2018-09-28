@@ -36,7 +36,7 @@ There are different ways to use this script detailed below, some safer than othe
 You can download the project from GitHub directly to include it in your project or you can also use one of the following commands while you are in your project:
 
 **Bower**:
-```shell
+```shell_session
 bower install easpm123
 ```
 
