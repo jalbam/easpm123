@@ -45,7 +45,7 @@ bower install easpm123
 yarn add easpm123
 ```
 
-**npm** (it will need a package.json):
+**npm** (it will need a _package.json_):
 ```
 yarn add easpm123
 ```
