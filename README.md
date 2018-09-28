@@ -19,13 +19,14 @@ It works in any browser with JavaScript support, even old ones (including Intern
 
 The behaviour can be configured easily through the main (and unique) object the script uses (read the instructions in [README.htm](README.html)). But if you are lazy, although it would be less safe, you just need to include the .js file in your website and change the class name (or add to the current classes a new one) of the A elements containing the links to the emails (the class name should be "easpm123" by default).
 
-In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js)) must be included in your document. The most common way, by using a _<SCRIPT>_ tag:
+In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js)) must be included in your document. The most common way, by using a **<SCRIPT>** tag:
 	```
 	<script src="easpm123_min.js" type="text/javascript" language="javascript"></script>
 	```
 
 If we decide to use the main (and unique) object (recommended for improving safety), this is how it looks like:
-	```
+
+```javascript
 	EASPM123
 	(
 		autoLoad:boolean, //Auto-load when the document is ready. Default is true.
@@ -38,7 +39,7 @@ If we decide to use the main (and unique) object (recommended for improving safe
 		atSymbolAliases:strings_array, //Texts that will be replaced by AT (@) symbol. Default is ["{*AT_HERE*}"].
 		eventNames:strings_array //Events that will fire the script (leave it empty to do it automatically without events). Default is ["mouseover", "click", "touchstart"].
 	);
-	```	
+```	
 
 The parameters accepted are the following ones:
 
@@ -66,9 +67,11 @@ The real email address will be shown when the user is over or click or taps the 
 
 
 #### HTML:
-		<a id="easpm123" href="mailto:email{*AT_HERE*}NO_SPAM_WELCOMEexample.com">email{*AT_HERE*}<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
-		<span id="easpm123_label">(without NO_SPAM_WELCOME)</span>
-		(PUT THE MOUSE CURSOR OVER THE EMAILS OR CLICK/TAP THEM!)
+```html
+	<a id="easpm123" href="mailto:email{*AT_HERE*}NO_SPAM_WELCOMEexample.com">email{*AT_HERE*}<del style="text-decoration:line-through;"><s>NO_SPAM_WELCOME</s></del>example.com</a>
+	<span id="easpm123_label">(without NO_SPAM_WELCOME)</span>
+	(PUT THE MOUSE CURSOR OVER THE EMAILS OR CLICK/TAP THEM!)
+```
 
 
 ### Example 2 - Very easy way (safer), with HTML and a bit of JavaScript:
