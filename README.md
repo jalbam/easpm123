@@ -77,7 +77,7 @@ If the **autoLoad** parameter is set to false (not recommended), the rest of par
 
 Have in mind that, as soon as the script is included, it will run itself once with the default options. We can run it again (through either the main object or the **run** method), if desired, after that.
 
-The main object can only be used before the **onload** event of the **window** object is fired. If we want to run the script after that, we need to use the **run** method instead.
+The main object can only be used before the **onload** event of the **window** object is fired. If we want to run the script after that, we need to use the **run** method instead. In fact, the **run** method can only be used after the **onload** event of the **window** object is fired.
 
 See the examples below for more information.
 
