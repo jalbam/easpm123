@@ -159,7 +159,7 @@ EASPM123
 ```
 
 
-### Example #4 - Not-so-easy way (safer), with a bit more of JavaScript and HTML:
+### Example #4 - Not-so-easy way for the user (safer), with a bit more of JavaScript and HTML:
 
 This is like the Example #3 but only firing the script under the default events (onmouseover, onclick and ontouchstart) and not automatically.
 
