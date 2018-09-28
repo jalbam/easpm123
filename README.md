@@ -56,6 +56,7 @@ The behaviour can be configured easily through the main (and unique) object the 
 
 In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js) which is already minified) must be included in your document. The most common way to do this is by using a **&lt;script&gt;** tag:
 ```html
+<!-- NOTE: Edit the "src" property to point to the right location of the .js file: -->
 <script src="easpm123_min.js" type="text/javascript" language="javascript"></script>
 ```
 
