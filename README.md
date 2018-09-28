@@ -96,8 +96,9 @@ The real email address will be shown when the user is over or clicks or taps the
 This methods needs a little bit of JavaScript (using an empty array as the "_eventNames_" parameter) but will not need any event fired by the user. The users can be happier this way but some spambots will be too. Safety wise, this method is not recommended.
 
 #### JavaScript:
+```javascript
 EASPM123(true, null, null, null, null, null, null, []);
-
+```
 
 #### HTML:
 Use the same HTML code from the Example #1.
