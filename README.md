@@ -33,7 +33,7 @@ There are different ways to use this script detailed below, some safer than othe
 
 ## Usage
 
-The behaviour can be configured easily through the main (and unique) object the script uses (for more information, you can read the instructions in [README.htm](README.html)). But if you are lazy, although it would be less safe, you just need to include the .js file in your website and change the class name (or add to the current classes a new one) of the **<a>** elements containing the links to the emails (the class name should be "easpm123" by default).
+The behaviour can be configured easily through the main (and unique) object the script uses (for more information, you can read the instructions in [README.htm](README.html)). But if you are lazy, although it would be less safe, you just need to include the .js file in your website and change the class name (or add to the current classes a new one) of the **&lt;a&gt;** elements containing the links to the emails (the class name should be "easpm123" by default).
 
 In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js) which is already minified) must be included in your document. The most common way to do this is by using a **<SCRIPT>** tag:
 ```html
@@ -47,13 +47,13 @@ EASPM123
 (
 	autoLoad
 	//Note: Next values can be set to null for default or use [] if you don't want any:
-	linkClasses:strings_array,
-	withoutNoSpamLabelClasses:strings_array,
-	linkIDs:strings_array,
-	withoutNoSpamLabelIDs:strings_array,
-	textsToClear:strings_array,
-	atSymbolAliases:strings_array,
-	eventNames:strings_array //.
+	linkClasses,
+	withoutNoSpamLabelClasses,
+	linkIDs,
+	withoutNoSpamLabelIDs,
+	textsToClear,
+	atSymbolAliases,
+	eventNames
 );
 ```	
 
@@ -62,26 +62,26 @@ The parameters accepted are the following ones:
 | Parameter					| Type				| Default value							| Mandatory?| Description																																																													|
 | --------------------------| ----------------- |-------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | autoLoad					| boolean			| true									| No		| If set to true, the script will be loaded automatically (the **run** method will not be needed to be called) when the document is ready.																														|
-| linkClasses				| array of strings	| ["easpm123"]							| No		| Class names used by the **<a>** tags (which contain a link to an email address) that will be affected.																																						|
+| linkClasses				| array of strings	| ["easpm123"]							| No		| Class names used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																						|
 | withoutNoSpamLabelClasses	| array of strings	| ["easpm123_label"]					| No		| Class names of the "_without-no-spam_" elements that will be removed.																																															|
-| linkIDs					| array of strings	| ["easpm123"]							| No		| IDs used by the **<a>** tags (which contain a link to an email address) that will be affected.																																								|
+| linkIDs					| array of strings	| ["easpm123"]							| No		| IDs used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																								|
 | withoutNoSpamLabelIDs		| array of strings	| ["easpm123_label"]					| No		| IDs used by the "_without-no-spam_" elements that will be removed.																																															|
 | textsToClear				| array of strings	| ["NO_SPAM_WELCOME"]					| No		| Texts to be cleared (case sensitive).																																																							|
 | atSymbolAliases			| array of strings	| ["{*AT_HERE*}"]						| No		| Texts that will be replaced by the _AT_ (_@_) symbol.																																																			|
-| eventNames				| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **<a>** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to do it automatically without events.	|
+| eventNames				| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **&lt;a&gt;** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to do it automatically without events.	|
 
-Note that, except for the first parameter (**autoLoad**), all the rest of parameter can accept the **null** value if we want to use their default value or can also accept an empty array (**[]** value) in the case that we do not want any value at all. In the case of the last parameter (**eventNames**), using an empty array will force the script to run its magic automatically (without having to fire any event).
+Note that, except for the first parameter (**autoLoad**), all the rest of the parameters can accept the **null** value if we want to use their default value or can also accept an empty array (as the **[]** value) in the case that we do not want any value at all. In the case of the last parameter (**eventNames**), using an empty array will force the script to run its magic automatically without having to fire any event (not recommended as the safety would be decreased).
 
 If the **autoLoad** parameter is set to false, the **run** method will have to be called manually when desired. This method accepts the same parameters as the main object except the first one. Read below to see an example showing how to use it.
 
 	
 ### Example 1 - Easiest way (not so safe), with just HTML: 
 
-This way, any **<a>** tag whose **id** or **class** property is **easpm123**, will be affected. The default text to remove from the email will be "NO_SPAM_WELCOME" and the "{*AT_HERE*}" will be replaced by the _AT_ (_@_) symbol.
+This way, any **&lt;a&gt;** tag whose **id** or **class** property is **easpm123**, will be affected. The default text to remove from the email will be "NO_SPAM_WELCOME" and the "{*AT_HERE*}" will be replaced by the _AT_ (_@_) symbol.
 
 The text inside of the elements whose **id** or **class** property is **easpm123_label** will be removed automatically when the page loads.
 
-The real email address will be shown when the user is over or click or taps the email link (the **<a>** tag described above).
+The real email address will be shown when the user is over or click or taps the email link (the **&lt;a&gt;** tag described above).
 
 
 #### HTML:
