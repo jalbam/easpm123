@@ -203,7 +203,8 @@ EASPM123
 Use the same HTML code from the Example #3.
 
 
-### Example #5 - A little-bit-more-difficult way (a bit safer), with more JavaScript and HTML:{example-5}
+### Example #5 - A little-bit-more-difficult way (a bit safer), with more JavaScript and HTML:
+<a name="example-5"></a>
 
 This is like the Example #4 but using the **run** method instead of the main object. So instead of running the script automatically we will do it manually.
 
