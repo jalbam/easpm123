@@ -19,11 +19,11 @@ Despite of this, this script should consider as a way to improve safety against 
 
 ## Basic idea
 
-The basic idea is to disguise the email address by modifying it using a text that will be removed by the script when the desired JavaScript events are fired (or, if desired, automatically when the document loaded).
+The basic idea is to disguise the email address by modifying it using a text that will be removed by the script when the desired JavaScript events are fired (or, if desired, automatically when the document is loaded).
 
 Most spambots will not fire those JavaScript events or, even if they did it, many of the times will not catch the email address after doing it but the previously-shown email address  (so they will end with a non-valid email address which includes the text that should have been removed).
 
-The text to be removed should be human-understandable so that a human being could figure out the real email in the case that JavaScript was disabled or something failed. Under these circumstances, to help any human-being to figure out the real email address, this script uses the so-called "_without-no-spam_" elements which are elements containing the instructions that the human-being should follow to get the real email address. These "_without-no-spam_" elements will be removed automatically if the JavaScript is working.
+The text to be removed should be human-understandable so that a human being could figure out the real email in the case that JavaScript was disabled or something failed. Under these circumstances, to help any human-being to figure out the real email address, this script uses the so-called "_without-no-spam_" elements which are elements containing the instructions that the human-being should follow to get the real email address. These "_without-no-spam_" elements will be removed automatically by the script if JavaScript is available.
 
 As nowadays many spambots can already translate "_AT_" and "_DOT_" to _"@"_ and _"."_ respetively, to improve safety this script provides a way to translate any desired text to the _AT_ (_@_) symbol. The key here is to use a non-so-famous text that no spambot will understand at all.
 
@@ -40,13 +40,13 @@ In order to start using this API, the ".js" file you choose (for example, [easpm
 <script src="easpm123_min.js" type="text/javascript" language="javascript"></script>
 ```
 
-If we decide to use the main (and unique) object (recommended for improving safety), this is how it looks like:
+If we decide to use the main (and unique) object, this is how it looks like:
 
 ```javascript
 EASPM123
 (
-	autoLoad
-	//Note: Next values can be set to null for default or use [] if you don't want any:
+	autoLoad,
+	//Note: Next values can be set to null to force using default value or use [] if you do not want any value at all:
 	linkClasses,
 	withoutNoSpamLabelClasses,
 	linkIDs,
@@ -230,7 +230,9 @@ To improve the safety and get rid of the as many spambots as possible I recommen
 
 5. Use the **run** method instead of the main object and call it some milliseconds after the **onload** event of the **window** object is fired. Look at the Example #5.
 
-6. If you are paranoid enough, you can consider using different ways to obfuscate the strings in the arrays used in the optional parameters and also use other ways of obfuscating. Again, use your own imagination.
+6. You can consider about using other events instead of the default ones to fire the script that could maybe improve safety.
+
+7. If you are paranoid enough, you can consider using different ways to obfuscate the strings in the arrays used in the optional parameters and also use other ways of obfuscating. Again, use your own imagination.
 
 
 ## Final comments
