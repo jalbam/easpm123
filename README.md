@@ -49,9 +49,9 @@ EASPM123
 	//Next values can be set to null to force using default ones or use
 	//an empty array if you do not want any value at all:
 	linkClasses,
-	withoutNoSpamLabelClasses,
+	withoutNoSpamElementClasses,
 	linkIDs,
-	withoutNoSpamLabelIDs,
+	withoutNoSpamElementIDs,
 	textsToClear,
 	atSymbolAliases,
 	eventNames
@@ -60,16 +60,16 @@ EASPM123
 
 The parameters accepted are the following ones:
 
-| Parameter						| Type				| Default value							| Mandatory?| Description																																																																	|
-| ----------------------------- | ----------------- |-------------------------------------- | --------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| **autoLoad**					| boolean			| true									| No		| If it is set to true, the script will be loaded automatically (the **run** method will not be needed to be called) when the document is ready. If it is set to false, all the rest of parameters will be ignored and they will need to be used in the **run** method instead.	|
-| **linkClasses**				| array of strings	| ["easpm123"]							| No		| Class names used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																									|
-| **withoutNoSpamLabelClasses**	| array of strings	| ["easpm123_label"]					| No		| Class names of the "_without-no-spam_" elements that will be removed.																																																			|
-| **linkIDs**					| array of strings	| ["easpm123"]							| No		| IDs used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																											|
-| **withoutNoSpamLabelIDs**		| array of strings	| ["easpm123_label"]					| No		| IDs used by the "_without-no-spam_" elements that will be removed.																																																			|
-| **textsToClear**				| array of strings	| ["NO_SPAM_WELCOME"]					| No		| Texts to be cleared (case sensitive).																																																											|
-| **atSymbolAliases**			| array of strings	| ["{*AT_HERE*}"]						| No		| Texts that will be replaced by the _AT_ (_@_) symbol.																																																							|
-| **eventNames**				| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **&lt;a&gt;** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to do it automatically without events.			|
+| Parameter							| Type				| Default value							| Mandatory?| Description																																																																	|
+| ---------------------------------	| ----------------- |-------------------------------------- | --------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| **autoLoad**						| boolean			| true									| No		| If it is set to true, the script will be loaded automatically (the **run** method will not be needed to be called) when the document is ready. If it is set to false, all the rest of parameters will be ignored and they will need to be used in the **run** method instead.	|
+| **linkClasses**					| array of strings	| ["easpm123"]							| No		| Class names used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																									|
+| **withoutNoSpamElementClasses**	| array of strings	| ["easpm123_label"]					| No		| Class names of the "_without-no-spam_" elements that will be removed.																																																			|
+| **linkIDs**						| array of strings	| ["easpm123"]							| No		| IDs used by the **&lt;a&gt;** tags (which contain a link to an email address) that will be affected.																																											|
+| **withoutNoSpamElementIDs**		| array of strings	| ["easpm123_label"]					| No		| IDs used by the "_without-no-spam_" elements that will be removed.																																																			|
+| **textsToClear**					| array of strings	| ["NO_SPAM_WELCOME"]					| No		| Texts to be cleared (case sensitive).																																																											|
+| **atSymbolAliases**				| array of strings	| ["{*AT_HERE*}"]						| No		| Texts that will be replaced by the _AT_ (_@_) symbol.																																																							|
+| **eventNames**					| array of strings	| ["mouseover", "click", "touchstart"]	| No		| Events that will fire the script. Those events will be attached to all affected **&lt;a&gt;** tags (which contain a link to an email address) and also to all the affected "_without-no-spam_" elements.  Use an empty array to do it automatically without events.			|
 
 Note that, except for the first parameter (**autoLoad**), all the rest of the parameters can accept the **null** value if we want to use their default value or can also accept an empty array (as the **[]** value) in the case that we do not want any value at all. In the case of the last parameter (**eventNames**), using an empty array will force the script to run its magic automatically without having to fire any event (not recommended as the safety would be decreased).
 
@@ -132,9 +132,9 @@ EASPM123
 (
 	true, //autoLoad.
 	["class_email_link", "class_email_link2"], //linkClasses.
-	["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamLabelClasses.
+	["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamElementClasses.
 	["id_email_link", "id_email_link2"], //linkIDs.
-	["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamLabelIDs.
+	["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamElementIDs.
 	["WITHOUT_THIS_TEXT", "TAKE_THIS_OUT"], //textsToClear
 	["[PUT_AT_HERE]", "{HERE_AN_AT_SYMBOL}"], //atSymbolAliases.
 	[] //eventNames.
@@ -171,9 +171,9 @@ EASPM123
 (
 	true, //autoLoad.
 	["class_email_link", "class_email_link2"], //linkClasses.
-	["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamLabelClasses.
+	["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamElementClasses.
 	["id_email_link", "id_email_link2"], //linkIDs.
-	["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamLabelIDs.
+	["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamElementIDs.
 	["WITHOUT_THIS_TEXT", "TAKE_THIS_OUT"], //textsToClear
 	["[PUT_AT_HERE]", "{HERE_AN_AT_SYMBOL}"], //atSymbolAliases.
 );
@@ -201,9 +201,9 @@ setTimeout
 		EASPM123.run
 		(
 			["class_email_link", "class_email_link2"], //linkClasses.
-			["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamLabelClasses.
+			["class_without_no_spam_label", "class_without_no_spam_label2"], //withoutNoSpamElementClasses.
 			["id_email_link", "id_email_link2"], //linkIDs.
-			["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamLabelIDs.
+			["id_without_no_spam_label", "id_without_no_spam_label2"], //withoutNoSpamElementIDs.
 			["WITHOUT_THIS_TEXT", "TAKE_THIS_OUT"], //textsToClear
 			["[PUT_AT_HERE]", "{HERE_AN_AT_SYMBOL}"], //atSymbolAliases.
 			[]
