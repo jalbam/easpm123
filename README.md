@@ -47,7 +47,7 @@ yarn add easpm123
 
 **npm** (it will need a _package.json_):
 ```
-yarn add easpm123
+npm i easpm123
 ```
 
 

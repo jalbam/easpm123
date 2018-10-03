@@ -22,11 +22,11 @@
 	],
 	"author": [ "Joan Alba Maldonado <joanalbamaldonadoNO_SPAM_PLEASE_DELETE_THIS@gmail.com>" ],
 	"license": "SEE LICENSE IN README.md",
-	"homepage": "https://github.com/jalbam/easpm123.git",
+	"homepage": "https://github.com/jalbam/easpm123",
 	"repository":
 	{
 		"type": "git",
-		"url": "git://github.com/foo/bar.git"
+		"url": "git://github.com/jalbam/easpm123.git"
 	},
 	"ignore":
 	[
