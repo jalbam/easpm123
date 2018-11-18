@@ -52,7 +52,7 @@ npm i easpm123
 
 
 
-The behaviour can be configured easily through the main (and unique) object the script uses (for more information, you can read the instructions in [README.htm](README.html)). But if you are lazy, although it would be less safe, you just need to include the .js file in your website and change the class name (or add to the current classes a new one) of the **&lt;a&gt;** elements containing the links to the emails (the class name should be "easpm123" by default).
+The behaviour can be configured easily through the main (and unique) object the script uses (for more information, you can read the instructions in [README.htm](README.htm)). But if you are lazy, although it would be less safe, you just need to include the .js file in your website and change the class name (or add to the current classes a new one) of the **&lt;a&gt;** elements containing the links to the emails (the class name should be "easpm123" by default).
 
 In order to start using this API, the ".js" file you choose (for example, [easpm123_min.js](easpm123_min.js) which is already minified) must be included in your document. The most common way to do this is by using a **&lt;script&gt;** tag:
 ```html
