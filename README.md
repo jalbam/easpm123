@@ -1,6 +1,6 @@
 EASPM123 (Email Anti-Spam 123) 
 ============================== 
-by Joan Alba Maldonado (joanalbamaldonadoNO_SPAM_PLEASE AT gmail DOT com, without NO_SPAM_PLEASE)
+by [Joan Alba Maldonado](https://joanalbamaldonado.com/) (joanalbamaldonadoNO_SPAM_PLEASE AT gmail DOT com, without NO_SPAM_PLEASE)
 
 An Easy-to-use JavaScript API that protects any email address you want to use in your website from spambots.
 
